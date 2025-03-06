@@ -10,7 +10,7 @@ export function ProductImage({image}) {
     return <div className="product-image" />;
   }
   return (
-    <div className="product-image">
+    <div className="product-image border border-gray-300 rounded-[20px] max-w-[500px]">
       <Image
         alt={image.altText || 'Product Image'}
         aspectRatio="1/1"
