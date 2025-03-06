@@ -427,6 +427,7 @@ button.reset:hover:not(:has(> *)) {
 .product-image img {
   height: auto;
   width: 100%;
+  border-radius: 20px;
 }
 
 .product-main {
