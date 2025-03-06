@@ -1,6 +1,4 @@
 import {Link, useNavigate} from '@remix-run/react';
-import {AddToCartButton} from './AddToCartButton';
-import {useAside} from './Aside';
 
 /**
  * @param {{
@@ -8,9 +6,8 @@ import {useAside} from './Aside';
  *   selectedVariant: ProductFragment['selectedOrFirstAvailableVariant'];
  * }}
  */
-export function ProductForm({productOptions, selectedVariant}) {
+export function ProductOptions({productOptions}) {
   const navigate = useNavigate();
-  const {open} = useAside();
 
   // Sort the product options to put swatches first
   const sortedProductOptions = [...productOptions].sort((a, b) => {
@@ -24,7 +21,7 @@ export function ProductForm({productOptions, selectedVariant}) {
   });
 
   return (
-    <div className="product-form">
+    <div className="product-options-wrapper">
       {sortedProductOptions.map((option) => {
         // If there is only a single value in the option values, don't display the option
         if (option.optionValues.length === 1) return null;
@@ -46,10 +43,6 @@ export function ProductForm({productOptions, selectedVariant}) {
                 } = value;
 
                 if (isDifferentProduct) {
-                  // SEO
-                  // When the variant is a combined listing child product
-                  // that leads to a different url, we need to render it
-                  // as an anchor tag
                   return (
                     <Link
                       className="product-options-item"
@@ -69,11 +62,6 @@ export function ProductForm({productOptions, selectedVariant}) {
                     </Link>
                   );
                 } else {
-                  // SEO
-                  // When the variant is an update to the search param,
-                  // render it as a button with javascript navigating to
-                  // the variant so that SEO bots do not index these as
-                  // duplicated links
                   return (
                     <button
                       type="button"
@@ -107,26 +95,6 @@ export function ProductForm({productOptions, selectedVariant}) {
           </div>
         );
       })}
-
-      <AddToCartButton
-        disabled={!selectedVariant || !selectedVariant.availableForSale}
-        onClick={() => {
-          open('cart');
-        }}
-        lines={
-          selectedVariant
-            ? [
-                {
-                  merchandiseId: selectedVariant.id,
-                  quantity: 1,
-                  selectedVariant,
-                },
-              ]
-            : []
-        }
-      >
-        {selectedVariant?.availableForSale ? 'Add to cart' : 'Sold out'}
-      </AddToCartButton>
     </div>
   );
 }

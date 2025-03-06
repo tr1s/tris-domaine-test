@@ -10,6 +10,8 @@ import {
 import {ProductPrice} from '~/components/ProductPrice';
 import {ProductImage} from '~/components/ProductImage';
 import {ProductForm} from '~/components/ProductForm';
+import {ProductOptions} from '~/components/ProductOptions';
+import {AddToCartButton} from '~/components/AddToCartButton';
 
 /**
  * @type {MetaFunction<typeof loader>}
@@ -103,28 +105,52 @@ export default function Product() {
 
   return (
     <>
-      <h1>Product Page</h1>
-      <div className="product">
+      <h1 className="text-2xl font-bold text-center text-red-500">
+        Product Page
+      </h1>
+      <div className="flex flex-col">
         <ProductImage image={selectedVariant?.image} />
         <div className="product-main">
-          <h1>{title}</h1>
+          {/* Options */}
+          <ProductOptions
+            productOptions={productOptions}
+            selectedVariant={selectedVariant}
+          />
+
+          {/* Vendor */}
+          <div className="product-vendor">{product.vendor}</div>
+
+          {/* Title */}
+          <h1 className="my-1 text-[#0A4874] text-[16px] font-[500]">
+            {title}
+          </h1>
+
+          {/* Price */}
           <ProductPrice
             price={selectedVariant?.price}
             compareAtPrice={selectedVariant?.compareAtPrice}
           />
-          <br />
-          <ProductForm
-            productOptions={productOptions}
-            selectedVariant={selectedVariant}
-          />
-          <br />
-          <br />
-          <p>
-            <strong>Description</strong>
-          </p>
-          <br />
-          <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
-          <br />
+
+          {/* Cart */}
+          {/* <AddToCartButton
+            disabled={!selectedVariant || !selectedVariant.availableForSale}
+            onClick={() => {
+              open('cart');
+            }}
+            lines={
+              selectedVariant
+                ? [
+                    {
+                      merchandiseId: selectedVariant.id,
+                      quantity: 1,
+                      selectedVariant,
+                    },
+                  ]
+                : []
+            }
+          >
+            {selectedVariant?.availableForSale ? 'Add to cart' : 'Sold out'}
+          </AddToCartButton> */}
         </div>
         <Analytics.ProductView
           data={{
