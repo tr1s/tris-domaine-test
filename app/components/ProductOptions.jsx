@@ -106,21 +106,18 @@ export function ProductOptions({productOptions}) {
  * }}
  */
 function ProductOptionSwatch({swatch, name}) {
-  const image = swatch?.image?.previewImage?.url;
   const color = swatch?.color;
 
-  if (!image && !color) return name;
+  if (!color) return name;
 
   return (
     <div
       aria-label={name}
-      className="product-option-label-swatch"
+      className="h-6 w-6 rounded-full"
       style={{
         backgroundColor: color || 'transparent',
       }}
-    >
-      {!!image && <img src={image} alt={name} />}
-    </div>
+    />
   );
 }
 
