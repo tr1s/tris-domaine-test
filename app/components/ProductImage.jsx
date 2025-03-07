@@ -11,7 +11,7 @@ export function ProductImage({image, isOnSale}) {
     return <div className="product-image" />;
   }
   return (
-    <div className="product-image border border-gray-300 rounded-[20px] max-w-[315px] mb-5 relative">
+    <div className="product-image py-[20px] border border-gray-300 rounded-[20px] max-w-[315px] mb-5 relative">
       <Image
         alt={image.altText || 'Product Image'}
         aspectRatio="1/1"
