@@ -107,7 +107,7 @@ export default function Product() {
 
   return (
     <>
-      <h1 className="text-2xl font-bold text-red-500 p-10">Product Page</h1>
+      <h1 className="text-3xl font-bold p-10 mb-[-40px]">Product Page</h1>
       <div className="flex flex-col p-10">
         <ProductImage
           image={selectedVariant?.image}
