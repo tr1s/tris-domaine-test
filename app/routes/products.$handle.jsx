@@ -9,6 +9,7 @@ import {
 } from '@shopify/hydrogen';
 import {ProductPrice} from '~/components/ProductPrice';
 import {ProductImage} from '~/components/ProductImage';
+// import {ProductForm} from '~/components/ProductForm';
 import {ProductOptions} from '~/components/ProductOptions';
 import {AddToCartButton} from '~/components/AddToCartButton';
 
