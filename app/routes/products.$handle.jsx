@@ -123,7 +123,7 @@ export default function Product() {
           />
 
           {/* Vendor */}
-          <div className="product-vendor">{product.vendor}</div>
+          <div className="product-vendor mt-[-10px]">{product.vendor}</div>
 
           {/* Title */}
           <h1 className="my-1 text-[#0A4874] text-[16px] font-[500]">

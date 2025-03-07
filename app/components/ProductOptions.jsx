@@ -113,7 +113,7 @@ function ProductOptionSwatch({swatch, name}) {
   return (
     <div
       aria-label={name}
-      className="h-6 w-6 rounded-full"
+      className="h-5 w-5 rounded-full"
       style={{
         backgroundColor: color || 'transparent',
       }}
