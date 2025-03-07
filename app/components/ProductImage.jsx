@@ -22,7 +22,7 @@ export function ProductImage({image, isOnSale}) {
 
       {isOnSale && (
         <div className="absolute top-5 left-5">
-          <span className="inline-block px-4 py-1 bg-white text-red-600 border border-red-600 rounded-[25.61px] font-medium">
+          <span className="inline-block px-4 py-[3px] bg-white text-red-600 border border-red-600 rounded-[25.61px] font-medium">
             On Sale!
           </span>
         </div>
