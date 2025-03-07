@@ -436,6 +436,9 @@ button.reset:hover:not(:has(> *)) {
   top: 6rem;
 }
 
+.product-price {
+  font-size: 14px;
+}
 .product-price-on-sale {
   display: flex;
   grid-gap: 0.5rem;
