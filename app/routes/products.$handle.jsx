@@ -91,6 +91,8 @@ export default function Product() {
     getAdjacentAndFirstAvailableVariants(product),
   );
 
+  console.log(selectedVariant);
+
   // Sets the search param to the selected variant without navigation
   // only when no search params are set in the url
   useSelectedOptionInUrlParam(selectedVariant.selectedOptions);
@@ -107,7 +109,12 @@ export default function Product() {
     <>
       <h1 className="text-2xl font-bold text-red-500 p-10">Product Page</h1>
       <div className="flex flex-col p-10">
-        <ProductImage image={selectedVariant?.image} />
+        <ProductImage
+          image={selectedVariant?.image}
+          isOnSale={
+            selectedVariant?.availableForSale && selectedVariant?.compareAtPrice
+          }
+        />
         <div className="product-main">
           {/* Options */}
           <ProductOptions
